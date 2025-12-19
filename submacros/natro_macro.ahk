@@ -1,20 +1,20 @@
 ﻿/*
-Natro Macro (https://github.com/NatroTeam/NatroMacro)
+Crack Natro (https://github.com/NatroTeam/NatroMacro)
 Copyright © Natro Team (https://github.com/NatroTeam)
 
-This file is part of Natro Macro. Our source code will always be open and available.
+This file is part of Crack Natro. Our source code will always be open and available.
 
-Natro Macro is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
+Crack Natro is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,
 either version 3 of the License, or (at your option) any later version.
 
-Natro Macro is distributed in the hope that it will be useful. This does not give you the right to steal sections from our code, distribute it under your own name, then slander the macro.
+Crack Natro is distributed in the hope that it will be useful. This does not give you the right to steal sections from our code, distribute it under your own name, then slander the macro.
 
-You should have received a copy of the license along with Natro Macro. If not, please redownload from an official source.
+You should have received a copy of the license along with Crack Natro. If not, please redownload from an official source.
 */
 
 ;Compiler directives (currently not in use):
-;@Ahk2Exe-SetName Natro Macro
-;@Ahk2Exe-SetDescription Natro Macro
+;@Ahk2Exe-SetName Crack Natro
+;@Ahk2Exe-SetDescription Crack Natro
 ;@Ahk2Exe-SetCompanyName Natro Team
 ;@Ahk2Exe-SetCopyright Copyright © Natro Team
 ;@Ahk2Exe-SetOrigFilename natro_macro.exe
@@ -66,11 +66,11 @@ ElevateScript() {
 		if (!A_IsAdmin || !(DllCall("GetCommandLine","Str") ~= " /restart(?!\S)"))
 			Try RunWait '*RunAs "' A_AhkPath '" /script /restart "' A_ScriptFullPath '"'
 		if !A_IsAdmin {
-			MsgBox "You must run Natro Macro as administrator in this folder!`nIf you don't want to do this, move the macro to a different folder (e.g. Downloads, Desktop)", "Error", 0x40010
+			MsgBox "You must run Crack Natro as administrator in this folder!`nIf you don't want to do this, move the macro to a different folder (e.g. Downloads, Desktop)", "Error", 0x40010
 			ExitApp
 		}
 		; elevated but still can't write, read-only directory?
-		MsgBox "You cannot run Natro Macro in this folder!`nTry moving the macro to a different folder (e.g. Downloads, Desktop)", "Error", 0x40010
+		MsgBox "You cannot run Crack Natro in this folder!`nTry moving the macro to a different folder (e.g. Downloads, Desktop)", "Error", 0x40010
 	}
 	else
 		file.Close()
@@ -2122,13 +2122,13 @@ nm_AutoUpdateGUI(*)
 			UpdateGui.Destroy(), UpdateGui := ""
 	}
 	GuiClose()
-	UpdateGui := Gui("+Border +Owner" MainGui.Hwnd " -MinimizeBox", "Natro Macro Update")
+	UpdateGui := Gui("+Border +Owner" MainGui.Hwnd " -MinimizeBox", "Crack Natro Update")
 	UpdateGui.OnEvent("Close", GuiClose), UpdateGui.OnEvent("Escape", GuiClose)
 	UpdateGui.SetFont("s9 cDefault Norm", "Tahoma")
-	UpdateText := UpdateGui.Add("Text", "x20 w260 +Center +BackgroundTrans", "A newer version of Natro Macro was found!`nDo you want to update now?")
+	UpdateText := UpdateGui.Add("Text", "x20 w260 +Center +BackgroundTrans", "A newer version of Crack Natro was found!`nDo you want to update now?")
 
-	posW := TextExtent("Natro Macro v" VersionID " ⮕ v" LatestVer, UpdateText)
-	UpdateGui.Add("Text", "x" 149-posW//2 " y40 +BackgroundTrans", "Natro Macro v" VersionID " ⮕ ")
+	posW := TextExtent("Crack Natro v" VersionID " ⮕ v" LatestVer, UpdateText)
+	UpdateGui.Add("Text", "x" 149-posW//2 " y40 +BackgroundTrans", "Crack Natro v" VersionID " ⮕ ")
 	UpdateGui.Add("Text", "x+0 yp +c379e37 +BackgroundTrans", "v" LatestVer)
 
 	posW := TextExtent((size := Round(latest_release["assets"][1]["size"]/1048576, 2)) " MB // Downloads: " (downloads := latest_release["assets"][1]["download_count"]), UpdateText)
@@ -2248,7 +2248,7 @@ nm_MajorUpdateHelp(*)
 {
 	MsgBox "v" VersionID " to v" LatestVer " is a major version update.`n`n"
 	. "This means that backward compatibility of Paths and Patterns cannot be guaranteed, so they cannot be automatically copied.`n"
-	. "However, in Natro Macro, your Settings are guaranteed to be transferable to any new version, so that option remains enabled.`n`n"
+	. "However, in Crack Natro, your Settings are guaranteed to be transferable to any new version, so that option remains enabled.`n`n"
 	. "For more information, you can review the convention at https://semver.org/", "Major Update", 0x1040
 }
 
@@ -2256,10 +2256,10 @@ nm_MajorUpdateHelp(*)
 ; CREATE GUI
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 OnExit(GetOut)
-MainGui := Gui((AlwaysOnTop ? "+AlwaysOnTop " : "") "+Border +OwnDialogs", "Natro Macro (Loading 0%)")
+MainGui := Gui((AlwaysOnTop ? "+AlwaysOnTop " : "") "+Border +OwnDialogs", "Crack Natro (Loading 0%)")
 WinSetTransparent 255-floor(GuiTransparency*2.55), MainGui
 MainGui.Show("x" GuiX " y" GuiY " w490 h275")
-SetLoadingProgress(percent) => MainGui.Title := "Natro Macro (Loading " Round(percent) "%)"
+SetLoadingProgress(percent) => MainGui.Title := "Crack Natro (Loading " Round(percent) "%)"
 MainGui.OnEvent("Close", (*) => ExitApp())
 MainGui.SetFont("s8 cDefault Norm", "Tahoma")
 MainGui.SetFont("w700")
@@ -3217,7 +3217,7 @@ SetLoadingProgress(100)
 nm_LockTabs(0)
 nm_setStatus("Startup", "UI")
 TabCtrl.Focus()
-MainGui.Title := "Natro Macro"
+MainGui.Title := "Crack Natro"
 MainGui["StartButton"].Enabled := 1
 MainGui["PauseButton"].Enabled := 1
 MainGui["StopButton"].Enabled := 1
@@ -8247,11 +8247,11 @@ nm_AutoStartManager(*){
 	if A_IsAdmin
 		MsgBox "
 		(
-		Natro Macro has been run as administrator!
-		Auto-Start Manager can only launch Natro Macro on logon without admin privileges.
+		Crack Natro has been run as administrator!
+		Auto-Start Manager can only launch Crack Natro on logon without admin privileges.
 
-		If you need to run Natro Macro as admin, either:
-		- fix the reason why admin is required (reinstall Roblox unelevated, move Natro Macro folder)
+		If you need to run Crack Natro as admin, either:
+		- fix the reason why admin is required (reinstall Roblox unelevated, move Crack Natro folder)
 		- manually set up a Scheduled Task in Task Scheduler with 'Run with highest privileges' checked
 		- disable UAC (not recommended at all!)
 		)", "Auto-Start Manager", 0x40030 " T120 Owner" MainGui.Hwnd
@@ -8286,11 +8286,11 @@ nm_AutoStartManager(*){
 	CenterText(ASMGui["StatusLabel"], ASMGui["StatusVal"], ASMGui["StatusLabel"])
 	ASMGui.SetFont("s9 cDefault Bold", "Tahoma")
 	ASMGui.Add("Text", "x0 y24 w" w " h36 vStatusText +Center c" ((status > 0) ? "Red" : "Green")
-		, ((status = 0) ? "Natro Macro will automatically start on user login using the settings below:"
-		: (status = 1) ? "No Natro Macro auto-start found!`nUse the 'Add' button below."
+		, ((status = 0) ? "Crack Natro will automatically start on user login using the settings below:"
+		: (status = 1) ? "No Crack Natro auto-start found!`nUse the 'Add' button below."
 		: "Your auto-start needs updating!`nUse 'Add' to create a new auto-start."))
 
-	ASMGui.Add("Text", "x0 yp+34 vNTLabel", "Natro Macro Path: ")
+	ASMGui.Add("Text", "x0 yp+34 vNTLabel", "Crack Natro Path: ")
 	ASMGui.Add("Text", "x0 yp vNTVal c" ((validScript) ? "Green" : "Red"), (status = 1) ? "None" : (validScript) ? "Valid" : "Invalid")
 	CenterText(ASMGui["NTLabel"], ASMGui["NTVal"], ASMGui["StatusText"])
 	ASMGui.Add("Text", "x0 yp+16 vASLabel", "Start Macro On Run: ")
@@ -8320,7 +8320,7 @@ AddButton(*)
 	local task, autostart, secs
 
 	if (task := RegRead("HKCU\Software\Microsoft\Windows\CurrentVersion\Run", "NatroMacro", ""))
-		if (MsgBox("Are you sure?`nThis will overwrite the existing Natro Macro auto-start!", "Overwrite Existing Entry", 0x40024 " T30 Owner" ASMGui.Hwnd) != "Yes")
+		if (MsgBox("Are you sure?`nThis will overwrite the existing Crack Natro auto-start!", "Overwrite Existing Entry", 0x40024 " T30 Owner" ASMGui.Hwnd) != "Yes")
 			return
 
 	autostart := ASMGui["AutoStartCheck"].Value
@@ -8335,7 +8335,7 @@ AddButton(*)
 	ASMGui["Delay"].Text := "Delay Duration: " ((secs > 0) ? hmsFromSeconds(secs) : "None")
 	ASMGui["StatusVal"].SetFont("cGreen", "Tahoma"), ASMGui["StatusVal"].Text := "Active"
 	CenterText(ASMGui["StatusLabel"], ASMGui["StatusVal"], ASMGui["StatusLabel"])
-	ASMGui["StatusText"].SetFont("cGreen"), ASMGui["StatusText"].Text := "Natro Macro will automatically start on user login using the settings below:"
+	ASMGui["StatusText"].SetFont("cGreen"), ASMGui["StatusText"].Text := "Crack Natro will automatically start on user login using the settings below:"
 	ASMGui["NTVal"].SetFont("cGreen"), ASMGui["NTVal"].Text := "Valid"
 	CenterText(ASMGui["NTLabel"], ASMGui["NTVal"], ASMGui["StatusText"])
 	ASMGui["ASVal"].SetFont((autostart = 1) ? "cGreen" : "cRed"), ASMGui["ASVal"].Text := (autostart = 1) ? "Enabled" : "Disabled"
@@ -8355,7 +8355,7 @@ RemoveButton(*)
 		ASMGui["Delay"].Text := "Delay Duration: None"
 		ASMGui["StatusVal"].SetFont("cRed", "Tahoma"), ASMGui["StatusVal"].Text := "Inactive"
 		CenterText(ASMGui["StatusLabel"], ASMGui["StatusVal"], ASMGui["StatusLabel"])
-		ASMGui["StatusText"].SetFont("cRed"), ASMGui["StatusText"].Text := "No Natro Macro auto-start found!`nUse the 'Add' button below."
+		ASMGui["StatusText"].SetFont("cRed"), ASMGui["StatusText"].Text := "No Crack Natro auto-start found!`nUse the 'Add' button below."
 		ASMGui["NTVal"].SetFont("cRed"), ASMGui["NTVal"].Text := "None"
 		CenterText(ASMGui["NTLabel"], ASMGui["NTVal"], ASMGui["StatusText"])
 		ASMGui["ASVal"].SetFont("cRed"), ASMGui["ASVal"].Text := "None"
@@ -21783,7 +21783,7 @@ start(*){
 		(
 		Your Roblox window is run as admin, but the macro is not!
 		This means the macro will be unable to send any inputs to Roblox.
-		You must either reinstall Roblox without administrative rights, or run Natro Macro as admin!
+		You must either reinstall Roblox without administrative rights, or run Crack Natro as admin!
 
 		NOTE: It is recommended to stop the macro now, as this issue also causes hotkeys to not work while Roblox is active."
 		)", "WARNING!!", 0x1030 " T60"
