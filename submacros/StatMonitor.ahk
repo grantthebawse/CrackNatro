@@ -1492,10 +1492,10 @@ SendHourlyReport()
 	; section 6: info
 	; row 1: statmonitor and natro version
 	y := stat_regions["info"][2]+60
-	pos := Gdip_TextToGraphics(G, "StatMonitor v" version " by SP", "s56 Center Bold c00ffffff x" stat_regions["info"][1]+stat_regions["info"][3]//2 " y" y, "Segoe UI")
+	pos := Gdip_TextToGraphics(G, "@grantthebawse on Discord", "s56 Center Bold c00ffffff x" stat_regions["info"][1]+stat_regions["info"][3]//2 " y" y, "Segoe UI")
 	x := SubStr(pos, 1, InStr(pos, "|", , , 1)-1)
 
-	pos := Gdip_TextToGraphics(G, "StatMonitor v" version " by ", "s56 Left Bold cafffffff x" x " y" y, "Segoe UI")
+	pos := Gdip_TextToGraphics(G, "@grantthebawse on Discord", "s56 Left Bold cafffffff x" x " y" y, "Segoe UI")
 	x := SubStr(pos, 1, InStr(pos, "|", , , 1)-1)+SubStr(pos, InStr(pos, "|", , , 2)+1, InStr(pos, "|", , , 3)-InStr(pos, "|", , , 2)-1)
 
 	pos := Gdip_TextToGraphics(G, "SP", "s56 Left Bold cffff5f1f x" x " y" y, "Segoe UI")
@@ -1536,15 +1536,15 @@ SendHourlyReport()
 		y := stat_regions["info"][2]+380
 		x := stat_regions["info"][1]+stat_regions["info"][3]//2-50
 
-		pos := Gdip_TextToGraphics(G, "Natro v" natro_version, "s56 Left Bold c00ffffff x" x " y" y, "Segoe UI")
+		pos := Gdip_TextToGraphics(G, "Crack Natro v" natro_version, "s56 Left Bold c00ffffff x" x " y" y, "Segoe UI")
 		x -= SubStr(pos, InStr(pos, "|", , , 2)+1, InStr(pos, "|", , , 3)-InStr(pos, "|", , , 2)-1)/2
-		pos := Gdip_TextToGraphics(G, "discord.gg/natromacro", "s56 Left Bold c00ffffff x" x " y" y, "Segoe UI")
+		pos := Gdip_TextToGraphics(G, "crack natro doesnt have a diddyblud server", "s56 Left Bold c00ffffff x" x " y" y, "Segoe UI")
 		x -= SubStr(pos, InStr(pos, "|", , , 2)+1, InStr(pos, "|", , , 3)-InStr(pos, "|", , , 2)-1)/2
 
-		pos := Gdip_TextToGraphics(G, "discord.gg/natromacro", "s56 Left Bold Underline cff3366cc x" x " y" y, "Segoe UI")
+		pos := Gdip_TextToGraphics(G, "crack natro doesnt have a diddyblud server", "s56 Left Bold Underline cff3366cc x" x " y" y, "Segoe UI")
 		x := SubStr(pos, 1, InStr(pos, "|", , , 1)-1)+SubStr(pos, InStr(pos, "|", , , 2)+1, InStr(pos, "|", , , 3)-InStr(pos, "|", , , 2)-1)
 		Gdip_DrawImage(G, bitmaps["pBMNatroLogo"], x+10, y, 80, 80)
-		Gdip_TextToGraphics(G, "Natro v" natro_version, "s56 Left Bold cffb47bd1 x" x+100 " y" y, "Segoe UI")
+		Gdip_TextToGraphics(G, "Crack Natro v" natro_version, "s56 Left Bold cffb47bd1 x" x+100 " y" y, "Segoe UI")
 	}
 
 	Gdip_DeleteGraphics(G)
